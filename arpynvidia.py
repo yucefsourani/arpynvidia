@@ -355,11 +355,11 @@ class MainWindow(Gtk.Window):
 
     def on_button_clicked(self,button):
         if self.driver_need_install:
-            yon = YesOrNo("Continue Install Driver?",self)
+            yon = YesOrNo("Warning !! Use This Program on Your own Risk\n\nContinue Install Driver?",self)
             if not yon.check():
                 return
         else:
-            yon = YesOrNo("Continue Remove Driver?",self)
+            yon = YesOrNo("Warning !! Use This Program on Your own Risk\n\nContinue Remove Driver?",self)
             if not yon.check():
                 return
         self.lock = True
