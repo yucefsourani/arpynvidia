@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.github.yucefsourani.arpynvidia
+Exec=/usr/libexec/com_github_yucefsourani_arpynvidia.py
+User=root

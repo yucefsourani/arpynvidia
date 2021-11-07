@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=ArPyNvidia
+GenericName=Nvidia Driver Installer
+Comment=Nvidia Driver Installer
+Terminal=false
+TryExec=arpynvidia.py
+Exec=arpynvidia.py
+Icon=com.github.yucefsourani.arpynvidia.png
+Categories=GTK;Utility;Settings;
+StartupNotify=false
