@@ -177,7 +177,7 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 def get_correct_path(relative_path):
     exedir = os.path.dirname(sys.argv[0])
-    p      = os.path.join(exedir,'..', 'share/arpynvidia/')
+    p      = os.path.join(exedir,'..', 'share/')
     if not os.path.exists(p):
         base_path = exedir
     else :
@@ -341,7 +341,7 @@ class MainWindow(Gtk.Window):
         self.infobar.connect("response", self.hide__infobar)
         self.mainvbox.pack_start(self.infobar,False,False,1)
         
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(get_correct_path("images/NVLogo_2D.png"),200,200,True)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(get_correct_path("arpynvidia/images/NVLogo_2D.png"),200,200,True)
         image = Gtk.Image.new_from_pixbuf(pixbuf)
         self.mainvbox.pack_start(image,False,False,1)
         
