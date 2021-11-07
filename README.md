@@ -1,11 +1,16 @@
 # arpynvidia BETA (For Fedora Linux Only)
-Gui Program To Install Nvidia Driver On Fedora Linux
+Gui Program To Install Nvidia Driver From rpmfusion 
 
-برنامج لتثبيت تعريف كرت الشاشة نفيديا
+برنامج لتثبيت تعريف كرت الشاشة نفيديا من مستودعات rpmfusion
+
 
 Warning !! Use This Program on Your own Risk
 
-إستخدم هذا البرنامج على مسؤوليتك 
+Tested Only On Fedora 35  Workstation with Nvidia Optimus.
+
+
+إستخدم هذا البرنامج على مسؤوليتك وقد جرب فقط على فيدورا 35 بواجهة جنوم بجهاز يحتوي كرت نفيديا هجين
+
 
 https://arfedora.blogspot.com
 
