@@ -14,13 +14,14 @@ https://arfedora.blogspot.com
  * python3-slip-dbus
  * python3-dbus
  * python3-beautifulsoup4
+ * rpmfusion-nonfree (rpmfusion repos)
 
 # To Install
 ``` git clone  https://github.com/yucefsourani/arpynvidia ```
 
 ``` cd arpynvidia ```
 
-``` sudo ./setup.py install ```
+``` sudo ./setup.py install --prefix=/usr ```
 
 ``` sudo systemctl reload dbus.service ```
 
