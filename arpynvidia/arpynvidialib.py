@@ -233,7 +233,7 @@ def get_info(lib32=True):
 def get_info_with_update(lib32=True):
     check = update_pciids()
     if not check:
-        return False        
+        return ("","")        
     lspci_ids = get_ides_from_lspci()
     if lspci_ids:
         all_driver_info = get_all_available_nvidia_driver()
@@ -243,12 +243,12 @@ def get_info_with_update(lib32=True):
             driver_package_name = all_driver_info[driver_number]
             ids = extract_drive_info(driver_number,force=True)
             if not ids:
-                return False
+                return ("","")
             for id_ in lspci_ids:
-                if id_ in ids:
+                if id_ in ids or id_.upper() in ids:
                     name = get_vga_name_by_id(id_)
                     if not name:
-                        return False
+                        name = ""
                     if lib32:
                         return (name,"xorg-x11-drv-nvidia-"+driver_number.split(".",1)[0]+"xx" + " kernel kernel-devel " + driver_package_name+" xorg-x11-drv-nvidia-"+driver_number.split(".",1)[0]+"xx-libs.i686")
                     else:
