@@ -208,7 +208,20 @@ class CTextView():
 class MainWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self)
-        self.set_title("ArPyNvidia")
+        self.headerbar = Gtk.HeaderBar.new()
+        self.headerbar.props.decoration_layout = "menu:minimize,maximize,close"
+        self.headerbar.props.title = "ArPyNvidia"
+        self.headerbar.props.decoration_layout_set = True
+        self.headerbar.props.show_close_button = True
+        self.headerbar.props.has_subtitle = False
+        self.set_titlebar(self.headerbar)
+        
+        self.aboutbutton = Gtk.Button.new_from_icon_name("help-about-symbolic", Gtk.IconSize.MENU)
+        self.aboutbutton.props.tooltip_text = "About"
+        
+        self.aboutbutton.connect("clicked",self.on_about)
+        self.headerbar.pack_end(self.aboutbutton)
+        
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
         Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)        
@@ -346,7 +359,8 @@ class MainWindow(Gtk.Window):
             self.install_remove_button.props.label = "Remove Driver"
             
         self.install_remove_button.connect("clicked",self.on_button_clicked)
-        self.mainvbox.pack_start(self.install_remove_button,False,False,1)
+        #self.mainvbox.pack_start(self.install_remove_button,False,False,1)
+        self.headerbar.pack_start(self.install_remove_button)
         
         self.textview = CTextView()
         self.mainvbox.pack_start(self.textview.sw,True,True,1)
@@ -424,6 +438,19 @@ class MainWindow(Gtk.Window):
         self.infobar_content.show_all()
         self.infobar.show()
 
+    def on_about(self,*w):
+        about = Gtk.AboutDialog(parent=self,transient_for=self, modal=True)
+        about.set_program_name("ArPyNvidia")
+        about.set_version("1.0BETA")
+        about.set_copyright("Copyright © 2021 Youssef Sourani")
+        about.set_comments("Nvidia Driver Installer For Fedora Linux")
+        about.set_website("https://github.com/yucefsourani/arpynvidia")
+        logo_=GdkPixbuf.Pixbuf.new_from_file(get_correct_path("pixmaps/com.github.yucefsourani.arpynvidia.png"))
+        about.set_logo(logo_)
+        about.set_authors(["Youssef Sourani <youssef.m.sourani@gmail.com>"])
+        about.set_license_type(Gtk.License.GPL_3_0)
+        about.run()
+        about.destroy()
         
         
 def on_quit_(self,event,mainwindow):
