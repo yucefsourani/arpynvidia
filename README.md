@@ -1,7 +1,11 @@
 # arpynvidia BETA (For Fedora Linux Only)
 Gui Program To Install Nvidia Driver On Fedora Linux
 
+برنامج لتثبيت تعريف كرت الشاشة نفيديا
+
 Warning !! Use This Program on Your own Risk
+
+إستخدم هذا البرنامج على مسؤوليتك 
 
 https://arfedora.blogspot.com
 
