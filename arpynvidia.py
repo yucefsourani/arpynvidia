@@ -362,7 +362,7 @@ class MainWindow(Gtk.Window):
         self.install_remove_button.connect("clicked",self.on_button_clicked)
         #self.mainvbox.pack_start(self.install_remove_button,False,False,1)
         self.headerbar.pack_start(self.install_remove_button)
-        
+        self.headerbar.pack_start(self.spinner)
         self.textview = CTextView()
         self.mainvbox.pack_start(self.textview.sw,True,True,1)
         
@@ -379,6 +379,7 @@ class MainWindow(Gtk.Window):
                 return
         self.lock = True
         self.infobar.hide()
+        self.spinner.start()
         threading.Thread(target=self._on_button_clicked).start()
         
     def _on_button_clicked(self):
@@ -388,10 +389,11 @@ class MainWindow(Gtk.Window):
             self.remove_driver()
         
     def on_install_remove_output(self,text):
-        GLib.idle_add(self.textview.insert_text,text+"\n")
+        GLib.idle_add(self.textview.insert_text," "+text+"\n")
         
     def on_install_remove_finish(self,result):
         self.lock = False
+        GLib.idle_add(self.spinner.stop)
         GLib.idle_add(self.install_remove_button.set_sensitive,True)
         if result[0]:
             if self.driver_need_install:
