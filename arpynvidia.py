@@ -306,6 +306,7 @@ class MainWindow(Gtk.Window):
             err_label.props.label = "Gettings Drive Info Faild"
             self.mainvbox.add(err_label)
             print(e)
+            return
 
     def on_get_info_done(self,result):
         self.packages = result
