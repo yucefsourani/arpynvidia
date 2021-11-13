@@ -176,7 +176,15 @@ class InstallDriverService(slip.dbus.service.Object):
         threading.Thread(target=self.__Install,args=(driver_packages_name,)).start()
     
     def __Install(self,driver_packages_name):
-        out = subprocess.Popen("dnf install {} -y".format(driver_packages_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        out = subprocess.Popen("dnf update kernel -b -y",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        self.__install_process = out
+        while out.poll()==None:
+            out.stdout.flush()
+            line = out.stdout.readline().decode("utf-8").strip()
+            if line:
+                self.OnInstallOutput(line)
+        self.__install_process = None
+        out = subprocess.Popen("dnf install {} -b -y".format(driver_packages_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
         self.__install_process = out
         while out.poll()==None:
             out.stdout.flush()
