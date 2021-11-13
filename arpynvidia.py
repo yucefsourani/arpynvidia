@@ -415,7 +415,7 @@ class MainWindow(Gtk.Window):
             if self.driver_need_install:
                 self.install_remove_button.props.label = "Remove Driver"
                 self.driver_need_install = False
-                if self.displaymanager != "gdm":
+                if self.displaymanager == "sddm":
                     self.show_in_infobar("Please Reboot System.\nAnd Change session in {} to use x11|xorg".format(self.displaymanager))
                 else:
                     self.show_in_infobar("Please Reboot System.")
