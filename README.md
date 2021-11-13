@@ -17,6 +17,7 @@ https://arfedora.blogspot.com
 
 # Requires
 
+ * xrandr
  * python3-gobject
  * gtk3
  * python3-slip

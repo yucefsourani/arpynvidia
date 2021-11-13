@@ -283,7 +283,23 @@ class MainWindow(Gtk.Window):
             err_label.props.label = "NotAuthorizedException"
             self.mainvbox.add(err_label)
             print(e)
-            return 
+            return
+        try:
+            if  self.arpynvidia_proxy.IsDualVga() and not os.path.isfile("/usr/bin/xrandr"):
+                err_label = Gtk.Label()
+                err_label.get_style_context().add_class("h1")
+                err_label.props.wrap = True
+                err_label.props.label = "Error! Please Install xrandr"
+                self.mainvbox.add(err_label)
+                return
+        except Exception as e:
+            err_label = Gtk.Label()
+            err_label.get_style_context().add_class("h1")
+            err_label.props.wrap = True
+            err_label.props.label = "NotAuthorizedException"
+            self.mainvbox.add(err_label)
+            print(e)
+            return
             
 
         
