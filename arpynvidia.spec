@@ -50,6 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/dbus-1/system.d/com.github.yucefsourani.arpynvidia.conf
 
 %changelog
-* San Jun 07 2021 yucuf sourani <youssef.m.sourani@gmail.com> 1.0-1
+* Sun Nov 14 2021 yucuf sourani <youssef.m.sourani@gmail.com> 1.0-1
 - Initial For Fedora 
+
 
