@@ -25,6 +25,7 @@ data_files = [
               ('share/icons/hicolor/128x128/apps/',['icons/hicolor/128x128/apps/com.github.yucefsourani.arpynvidia.png']),
               ('share/icons/hicolor/256x256/apps/',['icons/hicolor/256x256/apps/com.github.yucefsourani.arpynvidia.png']),
               ('share/icons/hicolor/512x512/apps/',['icons/hicolor/512x512/apps/com.github.yucefsourani.arpynvidia.png']),
+              ('share/icons/hicolor/scalable/apps/',['icons/hicolor/scalable/apps/com.github.yucefsourani.arpynvidia.svg']),
               ('share/pixmaps/',['icons/hicolor/64x64/apps/com.github.yucefsourani.arpynvidia.png']),
               ('share/arpynvidia/images',['images/NVLogo_2D.png'])
               ]
