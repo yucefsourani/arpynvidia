@@ -26,7 +26,12 @@ https://arfedora.blogspot.com
  * python3-beautifulsoup4
  * rpmfusion-nonfree (rpmfusion repos)
 
-# To Install
+# Install From copr
+``` sudo dnf copr enable youssefmsourani/arpynvidia  -y ```
+
+``` sudo dnf install arpynvidia -y ```
+
+# Install From source
 ``` git clone  https://github.com/yucefsourani/arpynvidia ```
 
 ``` cd arpynvidia ```
